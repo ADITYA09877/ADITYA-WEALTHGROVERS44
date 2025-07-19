@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Wealth Growers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .qr-container {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px dashed #e5e7eb;
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .website-link {
+            color: #2563eb;
+            font-weight: 600;
+            word-break: break-all;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .download-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .download-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .instructions {
+            background: #f0f9ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .instructions h3 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructions p {
+            color: #1e40af;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .qr-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://ik.imagekit.io/6ilngyaqa/1748147908945-Screenshot_2025-05-19_073352_ByK0N71l11.png" alt="Wealth Growers Logo" class="logo">
+        
+        <h1>QR Code Generator</h1>
+        <p class="subtitle">Scan to visit Wealth Growers Financial Literacy Hub</p>
+        
+        <div class="qr-container">
+            <div id="qrcode"></div>
+            <div class="website-link">
+                https://fascinating-llama-357dce.netlify.app/
+            </div>
+            <button class="download-btn" onclick="downloadQR('png')">Download PNG</button>
+            <button class="download-btn" onclick="downloadQR('svg')">Download SVG</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Use:</h3>
+            <p>1. Point your phone's camera at the QR code above<br>
+               2. Tap the notification that appears<br>
+               3. Visit the Wealth Growers website instantly!<br>
+               4. Download the QR code to share with others</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        const websiteUrl = 'https://fascinating-llama-357dce.netlify.app/';
+        
+        // Generate QR Code
+        QRCode.toCanvas(document.getElementById('qrcode'), websiteUrl, {
+            width: 200,
+            height: 200,
+            colorDark: '#1f2937',
+            colorLight: '#ffffff',
+            margin: 2,
+            errorCorrectionLevel: 'M'
+        }, function (error) {
+            if (error) console.error(error);
+            console.log('QR Code generated successfully!');
+        });
+
+        // Download QR Code function
+        function downloadQR(format) {
+            if (format === 'png') {
+                const canvas = document.querySelector('#qrcode canvas');
+                const link = document.createElement('a');
+                link.download = 'wealth-growers-qr-code.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            } else if (format === 'svg') {
+                QRCode.toString(websiteUrl, {
+                    type: 'svg',
+                    width: 200,
+                    height: 200,
+                    colorDark: '#1f2937',
+                    colorLight: '#ffffff',
+                    margin: 2
+                }, function (err, string) {
+                    if (err) throw err;
+                    
+                    const blob = new Blob([string], { type: 'image/svg+xml' });
+                    const link = document.createElement('a');
+                    link.download = 'wealth-growers-qr-code.svg';
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                });
+            }
+        }
+
+        // Add some animation
+        window.addEventListener('load', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            container.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
