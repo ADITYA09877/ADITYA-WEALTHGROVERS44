@@ -264,6 +264,285 @@ document.querySelector('.cta-button').addEventListener('click', function() {
     window.open('courses.html', '_blank');
 });
 
+// Tic Tac Toe Game Logic
+class TicTacToeGame {
+    constructor() {
+        this.board = Array(9).fill('');
+        this.currentPlayer = 'X';
+        this.gameActive = true;
+        this.playerWinChance = 0.1; // 10% chance for player to win
+        
+        this.financialTips = [
+            {
+                title: "Emergency Fund Wisdom",
+                message: "Always keep 3-6 months of expenses saved for emergencies. This financial cushion protects you from unexpected life events.",
+                hindi: "हमेशा आपातकाल के लिए 3-6 महीने का खर्च बचाकर रखें। यह वित्तीय सुरक्षा आपको अप्रत्याशित घटनाओं से बचाती है।"
+            },
+            {
+                title: "Investment Strategy",
+                message: "Start investing early, even with small amounts. The power of compound interest works best over time.",
+                hindi: "जल्दी निवेश शुरू करें, चाहे छोटी राशि से ही। चक्रवृद्धि ब्याज की शक्ति समय के साथ सबसे अच्छा काम करती है।"
+            },
+            {
+                title: "Budgeting Basics",
+                message: "Follow the 50-30-20 rule: 50% needs, 30% wants, 20% savings. This creates a balanced financial life.",
+                hindi: "50-30-20 नियम का पालन करें: 50% जरूरतें, 30% इच्छाएं, 20% बचत। यह संतुलित वित्तीय जीवन बनाता है।"
+            },
+            {
+                title: "Debt Management",
+                message: "Pay off high-interest debt first. Credit card debt can quickly spiral out of control if not managed properly.",
+                hindi: "पहले उच्च ब्याज वाले कर्ज का भुगतान करें। क्रेडिट कार्ड का कर्ज सही तरीके से प्रबंधित न करने पर तेजी से बढ़ सकता है।"
+            },
+            {
+                title: "Financial Goals",
+                message: "Set SMART financial goals: Specific, Measurable, Achievable, Relevant, and Time-bound.",
+                hindi: "SMART वित्तीय लक्ष्य निर्धारित करें: विशिष्ट, मापने योग्य, प्राप्त करने योग्य, प्रासंगिक और समयबद्ध।"
+            },
+            {
+                title: "Risk Management",
+                message: "Diversify your investments. Don't put all your eggs in one basket to minimize financial risk.",
+                hindi: "अपने निवेश में विविधता लाएं। वित्तीय जोखिम कम करने के लिए सभी अंडे एक ही टोकरी में न रखें।"
+            }
+        ];
+        
+        this.initializeGame();
+    }
+    
+    initializeGame() {
+        const cells = document.querySelectorAll('.cell');
+        const resetBtn = document.getElementById('resetGame');
+        
+        cells.forEach(cell => {
+            cell.addEventListener('click', (e) => this.handleCellClick(e));
+        });
+        
+        resetBtn.addEventListener('click', () => this.resetGame());
+        
+        this.updateStatus();
+    }
+    
+    handleCellClick(e) {
+        const index = parseInt(e.target.dataset.index);
+        
+        if (this.board[index] !== '' || !this.gameActive || this.currentPlayer !== 'X') {
+            return;
+        }
+        
+        this.makeMove(index, 'X');
+        
+        if (this.gameActive) {
+            setTimeout(() => {
+                this.aiMove();
+            }, 500);
+        }
+    }
+    
+    makeMove(index, player) {
+        this.board[index] = player;
+        const cell = document.querySelector(`[data-index="${index}"]`);
+        cell.textContent = player;
+        cell.classList.add(player.toLowerCase());
+        
+        if (this.checkWinner()) {
+            this.gameActive = false;
+            this.highlightWinningCells();
+            this.showGameResult(player);
+        } else if (this.board.every(cell => cell !== '')) {
+            this.gameActive = false;
+            this.showGameResult('draw');
+        } else {
+            this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+            this.updateStatus();
+        }
+    }
+    
+    aiMove() {
+        if (!this.gameActive) return;
+        
+        const availableMoves = this.board.map((cell, index) => cell === '' ? index : null).filter(val => val !== null);
+        
+        if (availableMoves.length === 0) return;
+        
+        let move;
+        
+        // Determine if player should win (10% chance)
+        const shouldPlayerWin = Math.random() < this.playerWinChance;
+        
+        if (shouldPlayerWin) {
+            // Make a random move to let player win
+            move = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+        } else {
+            // AI tries to win or block player
+            move = this.getBestMove() || availableMoves[Math.floor(Math.random() * availableMoves.length)];
+        }
+        
+        this.makeMove(move, 'O');
+    }
+    
+    getBestMove() {
+        // Check if AI can win
+        for (let i = 0; i < 9; i++) {
+            if (this.board[i] === '') {
+                this.board[i] = 'O';
+                if (this.checkWinner() === 'O') {
+                    this.board[i] = '';
+                    return i;
+                }
+                this.board[i] = '';
+            }
+        }
+        
+        // Check if AI needs to block player
+        for (let i = 0; i < 9; i++) {
+            if (this.board[i] === '') {
+                this.board[i] = 'X';
+                if (this.checkWinner() === 'X') {
+                    this.board[i] = '';
+                    return i;
+                }
+                this.board[i] = '';
+            }
+        }
+        
+        return null;
+    }
+    
+    checkWinner() {
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+            [0, 4, 8], [2, 4, 6] // diagonals
+        ];
+        
+        for (let pattern of winPatterns) {
+            const [a, b, c] = pattern;
+            if (this.board[a] && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
+                this.winningPattern = pattern;
+                return this.board[a];
+            }
+        }
+        
+        return null;
+    }
+    
+    highlightWinningCells() {
+        if (this.winningPattern) {
+            this.winningPattern.forEach(index => {
+                document.querySelector(`[data-index="${index}"]`).classList.add('winning');
+            });
+        }
+    }
+    
+    updateStatus() {
+        const playerStatus = document.getElementById('playerStatus');
+        const aiStatus = document.getElementById('aiStatus');
+        
+        if (this.currentPlayer === 'X') {
+            playerStatus.textContent = 'Your Turn';
+            aiStatus.textContent = 'Waiting';
+        } else {
+            playerStatus.textContent = 'Waiting';
+            aiStatus.textContent = 'AI Thinking...';
+        }
+    }
+    
+    showGameResult(winner) {
+        const modal = document.getElementById('gameResultModal');
+        const content = document.getElementById('gameResultContent');
+        const randomTip = this.financialTips[Math.floor(Math.random() * this.financialTips.length)];
+        const randomDiscount = Math.floor(Math.random() * 11) + 10; // 10-20%
+        
+        let resultHTML = '';
+        
+        if (winner === 'X') {
+            resultHTML = `
+                <h2 class="game-result-title win">🎉 Player A Wins! 🎉</h2>
+                <div class="discount-info">
+                    <h4>🎁 Congratulations! You've earned a 25% discount!</h4>
+                    <div class="discount-code">WINNER25</div>
+                </div>
+            `;
+        } else if (winner === 'O') {
+            resultHTML = `
+                <h2 class="game-result-title lose">😔 AI Wins!</h2>
+                <div class="discount-info">
+                    <h4>💰 You need to pay ₹20 extra, but here's a consolation discount!</h4>
+                    <div class="discount-code">CONSOLE${randomDiscount}</div>
+                    <p style="margin-top: 0.5rem; color: #92400e;">Use this ${randomDiscount}% discount code!</p>
+                </div>
+            `;
+        } else {
+            resultHTML = `
+                <h2 class="game-result-title draw">🤝 It's a Draw!</h2>
+                <div class="discount-info">
+                    <h4>🎁 Fair play deserves a reward!</h4>
+                    <div class="discount-code">DRAW${randomDiscount}</div>
+                    <p style="margin-top: 0.5rem; color: #92400e;">Enjoy ${randomDiscount}% discount!</p>
+                </div>
+            `;
+        }
+        
+        resultHTML += `
+            <div class="financial-tip">
+                <h4>💡 ${randomTip.title}</h4>
+                <p id="tipMessage">${randomTip.message}</p>
+                <div class="translate-section">
+                    <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #6b7280;">Don't understand English? Translate to:</p>
+                    <button class="translate-btn" onclick="translateTip('${randomTip.hindi}')">हिंदी</button>
+                    <button class="translate-btn" onclick="translateTip('${randomTip.message}')">English</button>
+                </div>
+            </div>
+            <button class="reset-btn" onclick="closeGameModal()" style="margin-top: 1rem;">Play Again</button>
+        `;
+        
+        content.innerHTML = resultHTML;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    resetGame() {
+        this.board = Array(9).fill('');
+        this.currentPlayer = 'X';
+        this.gameActive = true;
+        this.winningPattern = null;
+        
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('x', 'o', 'winning');
+        });
+        
+        this.updateStatus();
+    }
+}
+
+// Initialize game when page loads
+let ticTacToeGame;
+document.addEventListener('DOMContentLoaded', function() {
+    ticTacToeGame = new TicTacToeGame();
+});
+
+// Game modal functions
+function translateTip(message) {
+    document.getElementById('tipMessage').textContent = message;
+}
+
+function closeGameModal() {
+    const modal = document.getElementById('gameResultModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    ticTacToeGame.resetGame();
+}
+
+// Close game modal when clicking outside
+document.getElementById('closeGameModal').addEventListener('click', closeGameModal);
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('gameResultModal');
+    if (event.target === modal) {
+        closeGameModal();
+    }
+});
+
 // Add loading animation
 window.addEventListener('load', function() {
     document.body.style.opacity = '0';

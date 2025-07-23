@@ -119,6 +119,16 @@
                     <div class="swiper-slide">
                         <div class="team-card">
                             <div class="team-avatar">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <h3>Aditya Garg</h3>
+                            <p class="team-role">Website Creator</p>
+                            <p class="team-description">Lead developer and creator of the Wealth Growers website, passionate about combining technology with financial education.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <div class="team-avatar">
                                 <i class="fas fa-user"></i>
                             </div>
                             <h3>Reyansh</h3>
@@ -228,13 +238,75 @@
         </div>
     </section>
 
+    <!-- Tic Tac Toe Game Section -->
+    <section class="game-section">
+        <div class="container">
+            <h2 class="section-title">Financial Literacy Challenge Game</h2>
+            <p class="section-subtitle">Play Tic Tac Toe and learn about finance! Win for discounts, lose and pay extra!</p>
+            
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="player-info">
+                        <div class="player">
+                            <span class="player-label">You (X)</span>
+                            <span class="player-status" id="playerStatus">Your Turn</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-label">AI (O)</span>
+                            <span class="player-status" id="aiStatus">Waiting</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-board" id="gameBoard">
+                        <div class="cell" data-index="0"></div>
+                        <div class="cell" data-index="1"></div>
+                        <div class="cell" data-index="2"></div>
+                        <div class="cell" data-index="3"></div>
+                        <div class="cell" data-index="4"></div>
+                        <div class="cell" data-index="5"></div>
+                        <div class="cell" data-index="6"></div>
+                        <div class="cell" data-index="7"></div>
+                        <div class="cell" data-index="8"></div>
+                    </div>
+                    
+                    <button class="reset-btn" id="resetGame">New Game</button>
+                </div>
+                
+                <div class="game-rewards">
+                    <h3>Game Rewards</h3>
+                    <div class="reward-item win">
+                        <i class="fas fa-trophy"></i>
+                        <span>Win: Get 25% Discount!</span>
+                    </div>
+                    <div class="reward-item lose">
+                        <i class="fas fa-coins"></i>
+                        <span>Lose: Pay ₹20 Extra</span>
+                    </div>
+                    <div class="reward-item bonus">
+                        <i class="fas fa-gift"></i>
+                        <span>Bonus: Random 10-20% Discount</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Feedback Form Section -->
     <section id="feedback" class="feedback-section">
         <div class="container">
             <h2 class="section-title">Share Your Feedback</h2>
             <p class="section-subtitle">Help us improve our financial literacy resources</p>
             <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true" width="640" height="1679" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true" 
+                    width="100%" 
+                    height="1200" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    Loading…
+                </iframe>
             </div>
         </div>
     </section>
@@ -267,6 +339,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Game Result Modal -->
+    <div id="gameResultModal" class="modal">
+        <div class="modal-content game-modal">
+            <span class="close" id="closeGameModal">&times;</span>
+            <div id="gameResultContent"></div>
+        </div>
+    </div>
 
     <!-- Product Modal -->
     <div id="productModal" class="modal">
