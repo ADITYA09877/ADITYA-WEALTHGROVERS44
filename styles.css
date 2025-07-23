@@ -277,12 +277,20 @@ body {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #1f2937;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .team-role {
     color: #2563eb;
     font-weight: 600;
     margin-bottom: 1rem;
+    min-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .team-description {

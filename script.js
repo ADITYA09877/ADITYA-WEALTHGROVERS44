@@ -90,76 +90,74 @@ const productsSwiper = new Swiper('.products-swiper', {
 // Book Information Data
 const bookData = {
     1: {
-        title: "Money Basics for Teens",
-        description: "A comprehensive guide to understanding money fundamentals designed specifically for teenagers. Learn about earning, spending, and the value of money.",
+        title: "Money and Psychology",
+        description: "Explore the fascinating relationship between psychology and financial decisions. Understand how emotions, biases, and mental patterns influence your money choices.",
         content: [
-            "Understanding the concept of money and its history",
-            "Different ways to earn money as a teenager",
-            "The importance of financial responsibility",
-            "Basic banking concepts and account types",
-            "Introduction to digital payments and online banking"
+            "The psychology behind spending and saving behaviors",
+            "Understanding cognitive biases in financial decisions",
+            "Emotional triggers that affect money management",
+            "Building healthy financial mindsets and habits",
+            "Overcoming money-related stress and anxiety"
         ],
-        keyTakeaways: "Master the fundamentals of money management and develop healthy financial habits from an early age."
+        keyTakeaways: "Understand the psychological factors that drive financial decisions and learn to make more rational money choices.",
+        price: "₹299",
+        image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg"
     },
     2: {
-        title: "Smart Saving Strategies",
-        description: "Discover proven techniques to save money effectively and build a strong financial foundation for your future goals.",
+        title: "7 Best Ways to Earn Money",
+        description: "Discover multiple income streams and practical strategies to increase your earning potential in today's economy.",
         content: [
-            "The 50/30/20 budgeting rule explained",
-            "Setting up automatic savings plans",
-            "Emergency fund creation and management",
-            "High-yield savings accounts vs. regular savings",
-            "Goal-based saving strategies for different life stages"
+            "Traditional employment and career advancement",
+            "Freelancing and gig economy opportunities",
+            "Starting your own business or side hustle",
+            "Investment income and passive earning strategies",
+            "Digital marketing and online business models"
         ],
-        keyTakeaways: "Learn to save systematically and watch your money grow through smart saving strategies and compound interest."
+        keyTakeaways: "Learn proven methods to diversify your income and build multiple revenue streams for financial security.",
+        price: "₹399",
+        image: "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg"
     },
     3: {
-        title: "Investment Guide for Beginners",
-        description: "Start your investment journey with confidence. Learn the basics of investing, risk management, and building wealth over time.",
+        title: "75 Hard Challenge",
+        description: "A transformative 75-day mental toughness program that builds discipline, confidence, and financial self-control.",
         content: [
-            "Understanding stocks, bonds, and mutual funds",
-            "Risk vs. return: Finding your investment comfort zone",
-            "Dollar-cost averaging and its benefits",
-            "Introduction to index funds and ETFs",
-            "Building a diversified investment portfolio"
+            "The complete 75 Hard Challenge rules and guidelines",
+            "Building mental toughness and discipline",
+            "Developing consistent daily habits",
+            "Applying discipline to financial goals",
+            "Tracking progress and maintaining accountability"
         ],
-        keyTakeaways: "Begin investing early to harness the power of compound growth and build long-term wealth."
+        keyTakeaways: "Develop unbreakable mental discipline that translates into better financial habits and life success.",
+        price: "₹249",
+        image: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg"
     },
     4: {
-        title: "Budgeting Made Simple",
-        description: "Master the art of budgeting with easy-to-follow strategies that help you track expenses and achieve your financial goals.",
+        title: "Saving Money for the Future",
+        description: "Learn advanced saving strategies and long-term wealth building techniques for a secure financial future.",
         content: [
-            "Creating your first budget: Step-by-step guide",
-            "Tracking expenses using apps and spreadsheets",
-            "Identifying and cutting unnecessary expenses",
-            "Budget categories and allocation strategies",
-            "Adjusting your budget as life changes"
+            "Long-term saving strategies and goal setting",
+            "Understanding compound interest and time value of money",
+            "Retirement planning and pension schemes",
+            "Tax-saving investment options",
+            "Creating emergency funds and financial safety nets"
         ],
-        keyTakeaways: "Take control of your finances with effective budgeting techniques that ensure you live within your means."
+        keyTakeaways: "Build a comprehensive saving plan that ensures financial security and wealth accumulation over time.",
+        price: "₹349",
+        image: "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg"
     },
     5: {
-        title: "Entrepreneurship Essentials",
-        description: "Learn the financial aspects of starting and running a business, from initial funding to managing cash flow and growth.",
+        title: "Poor Father vs Good Father",
+        description: "Understand the mindset differences between financially struggling and financially successful parents and their impact on children.",
         content: [
-            "Business planning and financial projections",
-            "Understanding startup costs and funding options",
-            "Cash flow management for small businesses",
-            "Basic accounting principles for entrepreneurs",
-            "Tax considerations for business owners"
+            "Contrasting financial philosophies and mindsets",
+            "How parental attitudes shape children's money beliefs",
+            "Breaking generational cycles of financial struggle",
+            "Teaching children healthy money habits",
+            "Building wealth-conscious family traditions"
         ],
-        keyTakeaways: "Develop the financial skills needed to start and successfully manage your own business venture."
-    },
-    6: {
-        title: "Financial Security Handbook",
-        description: "Protect your financial future with comprehensive strategies for insurance, emergency planning, and avoiding common financial pitfalls.",
-        content: [
-            "Types of insurance and their importance",
-            "Building and maintaining an emergency fund",
-            "Identity theft protection and financial security",
-            "Understanding credit scores and credit reports",
-            "Avoiding debt traps and predatory lending"
-        ],
-        keyTakeaways: "Secure your financial future by learning to protect yourself from financial risks and unexpected events."
+        keyTakeaways: "Learn how to break negative financial patterns and create a positive money legacy for future generations.",
+        price: "₹279",
+        image: "https://images.pexels.com/photos/1153213/pexels-photo-1153213.jpeg"
     }
 };
 
@@ -183,6 +181,9 @@ document.querySelectorAll('.product-card').forEach(card => {
 function showBookModal(book) {
     modalBody.innerHTML = `
         <h2 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.8rem;">${book.title}</h2>
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <img src="${book.image}" alt="${book.title}" style="width: 150px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        </div>
         <p style="color: #6b7280; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6;">${book.description}</p>
         
         <h3 style="color: #1f2937; margin-bottom: 1rem; font-size: 1.3rem;">What You'll Learn:</h3>
@@ -193,14 +194,15 @@ function showBookModal(book) {
         <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2563eb;">
             <h4 style="color: #2563eb; margin-bottom: 0.5rem;">Key Takeaway:</h4>
             <p style="color: #1e40af; font-weight: 500;">${book.keyTakeaways}</p>
+            <p style="color: #2563eb; font-weight: 700; font-size: 1.2rem; margin-top: 1rem;">Price: ${book.price}</p>
         </div>
         
         <div style="margin-top: 2rem; text-align: center;">
             <button style="background: #2563eb; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" 
                     onmouseover="this.style.background='#1d4ed8'" 
                     onmouseout="this.style.background='#2563eb'"
-                    onclick="alert('This is a demo. In a real implementation, this would download or open the book.')">
-                Access This Resource
+                    onclick="window.open('https://store.pothi.com/cart/', '_blank')">
+                Buy Now
             </button>
         </div>
     `;
@@ -259,9 +261,7 @@ document.querySelectorAll('.about-card, .team-card, .product-card').forEach(el =
 
 // CTA Button functionality
 document.querySelector('.cta-button').addEventListener('click', function() {
-    document.querySelector('#about').scrollIntoView({
-        behavior: 'smooth'
-    });
+    window.open('courses.html', '_blank');
 });
 
 // Add loading animation

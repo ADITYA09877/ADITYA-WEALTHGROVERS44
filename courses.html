@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Courses - Wealth Growers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 60px 0;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-subtitle {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #374151;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-content {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .career-opportunities {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .career-opportunities h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .career-list {
+            color: #1e40af;
+            font-size: 0.9rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #2563eb;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+            }
+            
+            .course-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.close()">
+        <i class="fas fa-arrow-left"></i> Back to Website
+    </button>
+
+    <div class="header">
+        <div class="container">
+            <h1>Financial Courses & Career Paths</h1>
+            <p>Explore comprehensive financial courses that will help you build expertise and advance your career in finance</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="courses-grid">
+            <!-- CA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3 class="course-title">CA</h3>
+                <p class="course-subtitle">Chartered Accountant</p>
+                <p class="course-description">The most prestigious accounting qualification in India, covering auditing, taxation, financial management, and corporate laws.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">12th pass (Commerce preferred) or Graduate</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">3 levels - Foundation, Intermediate, Final. Conducted by ICAI twice yearly</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Analytical thinking, attention to detail, mathematical aptitude, communication skills</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Auditor, Tax Consultant, Financial Analyst, CFO, Independent Practice, Corporate Finance</p>
+                </div>
+            </div>
+
+            <!-- CS Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="course-title">CS</h3>
+                <p class="course-subtitle">Company Secretary</p>
+                <p class="course-description">Professional course focusing on corporate governance, compliance, and secretarial practices for companies.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">12th pass or Graduate from any stream</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">3 stages - Foundation, Executive, Professional. Conducted by ICSI</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Legal knowledge, communication skills, organizational abilities, compliance expertise</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Company Secretary, Compliance Officer, Legal Advisor, Corporate Governance Expert</p>
+                </div>
+            </div>
+
+            <!-- CFP Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="course-title">CFP</h3>
+                <p class="course-subtitle">Certified Financial Planner</p>
+                <p class="course-description">International certification for financial planning professionals, covering investment, insurance, tax, and estate planning.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Graduate degree + 3 years work experience in financial services</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">6 modules + comprehensive exam. Conducted by FPSB India</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Financial analysis, client relationship, investment knowledge, ethical standards</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Financial Planner, Wealth Manager, Investment Advisor, Insurance Consultant</p>
+                </div>
+            </div>
+
+            <!-- CFA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="course-title">CFA</h3>
+                <p class="course-subtitle">Chartered Financial Analyst</p>
+                <p class="course-description">Globally recognized investment management credential covering portfolio management, equity research, and financial analysis.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Bachelor's degree or final year student + 4 years work experience</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">3 levels - I, II, III. Conducted by CFA Institute globally</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Quantitative analysis, financial modeling, research skills, ethical standards</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Investment Analyst, Portfolio Manager, Research Analyst, Fund Manager, Investment Banking</p>
+                </div>
+            </div>
+
+            <!-- MBA Finance -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="course-title">MBA Finance</h3>
+                <p class="course-subtitle">Master of Business Administration in Finance</p>
+                <p class="course-description">Comprehensive management program with specialization in financial management, corporate finance, and investment strategies.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Bachelor's degree with minimum 50% marks + entrance exam (CAT/XAT/GMAT)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">2-year full-time program with specialization in 2nd year</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Leadership, analytical thinking, communication, strategic planning, teamwork</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Financial Manager, Investment Banker, Corporate Finance, Consulting, General Management</p>
+                </div>
+            </div>
+
+            <!-- FRM Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="course-title">FRM</h3>
+                <p class="course-subtitle">Financial Risk Manager</p>
+                <p class="course-description">Global certification for risk management professionals covering market, credit, operational, and liquidity risk.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">No specific eligibility, but bachelor's degree recommended</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">2 parts - Part I & Part II. Conducted by GARP twice yearly</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Risk analysis, quantitative methods, financial markets knowledge, regulatory understanding</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Risk Manager, Risk Analyst, Credit Risk Officer, Market Risk Specialist, Regulatory Compliance</p>
+                </div>
+            </div>
+
+            <!-- CMA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="course-title">CMA</h3>
+                <p class="course-subtitle">Cost and Management Accountant</p>
+                <p class="course-description">Professional course focusing on cost accounting, management accounting, and financial management for businesses.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">12th pass or Graduate from any stream</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">3 levels - Foundation, Intermediate, Final. Conducted by ICMAI</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Cost analysis, budgeting, financial planning, management reporting</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Cost Accountant, Management Accountant, Financial Controller, Budget Analyst, Internal Auditor</p>
+                </div>
+            </div>
+
+            <!-- ACCA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="course-title">ACCA</h3>
+                <p class="course-subtitle">Association of Chartered Certified Accountants</p>
+                <p class="course-description">Global accounting qualification recognized worldwide, covering accounting, finance, and business management.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">12th pass (3 A-levels) or equivalent qualification</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">13 papers in 3 levels - Applied Knowledge, Applied Skills, Strategic Professional</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">International accounting standards, business acumen, analytical skills, professional ethics</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">International Accountant, Auditor, Financial Analyst, Tax Advisor, Corporate Finance</p>
+                </div>
+            </div>
+
+            <!-- CISA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="course-title">CISA</h3>
+                <p class="course-subtitle">Certified Information Systems Auditor</p>
+                <p class="course-description">Certification for IT audit, control, and security professionals in the financial and technology sectors.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">5 years of professional work experience in information systems auditing</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">Single exam with 150 questions. Conducted by ISACA multiple times yearly</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">IT knowledge, audit procedures, risk assessment, compliance frameworks</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">IT Auditor, Information Security Manager, Risk Consultant, Compliance Officer</p>
+                </div>
+            </div>
+
+            <!-- PMP Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3 class="course-title">PMP</h3>
+                <p class="course-subtitle">Project Management Professional</p>
+                <p class="course-description">Global certification for project managers, applicable to financial projects and business transformation initiatives.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Bachelor's degree + 3 years project management experience + 35 hours training</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">180 questions in 230 minutes. Conducted by PMI globally</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Project planning, risk management, team leadership, stakeholder management</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Project Manager, Program Manager, Financial Project Lead, Business Analyst, Consultant</p>
+                </div>
+            </div>
+
+            <!-- Additional courses continue with similar structure... -->
+            <!-- I'll add a few more key ones -->
+
+            <!-- CPA Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="course-title">CPA</h3>
+                <p class="course-subtitle">Certified Public Accountant</p>
+                <p class="course-description">US-based accounting certification recognized globally, covering auditing, financial accounting, and business environment.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Bachelor's degree with 150 credit hours including accounting courses</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Exam Pattern:</span>
+                        <span class="detail-content">4 sections - AUD, BEC, FAR, REG. Conducted by AICPA</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-label">US GAAP knowledge, auditing standards, tax regulations, business concepts</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Public Accountant, Tax Consultant, Financial Analyst, Controller, International Finance</p>
+                </div>
+            </div>
+
+            <!-- Financial Modeling Course -->
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="course-title">Financial Modeling</h3>
+                <p class="course-subtitle">Advanced Excel & Financial Modeling</p>
+                <p class="course-description">Specialized course in building financial models for valuation, forecasting, and investment analysis using Excel and other tools.</p>
+                
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Eligibility:</span>
+                        <span class="detail-content">Basic finance knowledge and Excel proficiency</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Course Duration:</span>
+                        <span class="detail-content">3-6 months intensive training with practical projects</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Required Skills:</span>
+                        <span class="detail-content">Excel expertise, financial analysis, logical thinking, attention to detail</span>
+                    </div>
+                </div>
+                
+                <div class="career-opportunities">
+                    <h4>Career Opportunities:</h4>
+                    <p class="career-list">Financial Analyst, Investment Banking, Equity Research, Corporate Development, Consulting</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
