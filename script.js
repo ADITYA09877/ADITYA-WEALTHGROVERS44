@@ -744,4 +744,407 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('wheelCanvas')) {
         new SpinWheelGame();
     }
+    
+    // Initialize Commerce GPT
+    initializeCommerceGPT();
 });
+
+// Commerce GPT Implementation
+function initializeCommerceGPT() {
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendMessage');
+    const chatWindow = document.getElementById('chatWindow');
+    const clearBtn = document.getElementById('clearChat');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+    
+    let conversationHistory = [];
+    
+    // Auto-resize textarea
+    chatInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        
+        // Enable/disable send button
+        sendBtn.disabled = this.value.trim() === '';
+    });
+    
+    // Send message on Enter (Shift+Enter for new line)
+    chatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+    
+    // Send button click
+    sendBtn.addEventListener('click', sendMessage);
+    
+    // Clear chat
+    clearBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to clear the chat history?')) {
+            clearChat();
+        }
+    });
+    
+    // Suggestion buttons
+    suggestionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const suggestion = this.getAttribute('data-suggestion');
+            chatInput.value = suggestion;
+            chatInput.style.height = 'auto';
+            chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
+            sendBtn.disabled = false;
+            chatInput.focus();
+        });
+    });
+    
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        addMessage(message, 'user');
+        conversationHistory.push({ role: 'user', content: message });
+        
+        // Clear input
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        sendBtn.disabled = true;
+        
+        // Show typing indicator
+        showTypingIndicator();
+        
+        // Simulate AI response
+        setTimeout(() => {
+            const response = generateAIResponse(message, conversationHistory);
+            hideTypingIndicator();
+            addMessage(response, 'bot');
+            conversationHistory.push({ role: 'assistant', content: response });
+        }, 1500 + Math.random() * 2000); // Random delay 1.5-3.5s
+    }
+    
+    function addMessage(content, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}`;
+        
+        const avatar = document.createElement('div');
+        avatar.className = sender === 'user' ? 'user-avatar' : 'bot-avatar';
+        avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+        
+        const messageContent = document.createElement('div');
+        messageContent.className = 'message-content';
+        messageContent.innerHTML = formatMessage(content);
+        
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(messageContent);
+        
+        chatWindow.appendChild(messageDiv);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+    
+    function formatMessage(content) {
+        // Convert markdown-like formatting to HTML
+        return content
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\n/g, '<br>')
+            .replace(/(\d+\.\s)/g, '<br>$1');
+    }
+    
+    function showTypingIndicator() {
+        typingIndicator.style.display = 'flex';
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+    
+    function hideTypingIndicator() {
+        typingIndicator.style.display = 'none';
+    }
+    
+    function clearChat() {
+        // Remove all messages except welcome message
+        const messages = chatWindow.querySelectorAll('.chat-message');
+        messages.forEach(msg => msg.remove());
+        conversationHistory = [];
+    }
+    
+    function generateAIResponse(userMessage, history) {
+        const message = userMessage.toLowerCase();
+        
+        // Commerce and Finance responses
+        if (message.includes('ca') && (message.includes('cs') || message.includes('difference'))) {
+            return `**CA vs CS: Key Differences**
+
+**Chartered Accountant (CA):**
+• Focus: Accounting, Auditing, Taxation, Financial Management
+• Duration: 4-5 years typically
+• Eligibility: 12th pass or Graduate
+• Career: Auditor, Tax Consultant, CFO, Financial Analyst
+• Salary Range: ₹6-25 LPA (experienced professionals earn much more)
+
+**Company Secretary (CS):**
+• Focus: Corporate Law, Governance, Compliance, Secretarial Practice
+• Duration: 3-4 years typically
+• Eligibility: 12th pass or Graduate
+• Career: Company Secretary, Compliance Officer, Legal Advisor
+• Salary Range: ₹4-15 LPA
+
+**Key Difference:** CA is more numbers and finance-focused, while CS is more law and compliance-focused. Both are excellent career choices with strong job prospects!`;
+        }
+        
+        if (message.includes('ca foundation') || message.includes('ca prep')) {
+            return `**CA Foundation Preparation Strategy**
+
+**Subjects & Weightage:**
+1. **Principles of Accounting (100 marks)** - Most important, practice daily
+2. **Business Laws (100 marks)** - Memorization + understanding
+3. **Business Mathematics & Statistics (100 marks)** - Formula-based
+4. **Business Economics (100 marks)** - Conceptual understanding
+
+**Study Plan:**
+• **6 months minimum** preparation time
+• **4-5 hours daily** study
+• **Practice papers** - solve at least 5 mock tests
+• **Revision** - 1 month before exam
+
+**Pro Tips:**
+✓ Start with Accounting - it's the foundation
+✓ Make formula sheets for Maths & Stats
+✓ Use mnemonics for Business Laws
+✓ Join study groups or online forums
+
+**Pass Rate:** Around 30-40%, so consistent effort is key!`;
+        }
+        
+        if (message.includes('commerce career') || message.includes('career opportunities')) {
+            return `**Top Career Opportunities in Commerce**
+
+**Professional Courses:**
+• **CA** - Chartered Accountant (₹6-50+ LPA)
+• **CS** - Company Secretary (₹4-20 LPA)
+• **CMA** - Cost & Management Accountant (₹5-25 LPA)
+• **CFA** - Chartered Financial Analyst (₹8-40 LPA)
+
+**Corporate Roles:**
+• Financial Analyst (₹4-15 LPA)
+• Investment Banker (₹8-30 LPA)
+• Tax Consultant (₹3-12 LPA)
+• Audit Manager (₹6-20 LPA)
+• Business Analyst (₹5-18 LPA)
+
+**Entrepreneurship:**
+• Start your own CA/CS practice
+• Financial consulting firm
+• Tax advisory services
+• Business process outsourcing
+
+**Government Jobs:**
+• Banking (SBI PO, IBPS)
+• Civil Services (IAS, IRS)
+• Public Sector Units
+
+The commerce field offers excellent growth potential and job security!`;
+        }
+        
+        if (message.includes('accounting') && message.includes('basic')) {
+            return `**Basic Accounting Principles**
+
+**Golden Rules of Accounting:**
+1. **Personal Account:** Debit the receiver, Credit the giver
+2. **Real Account:** Debit what comes in, Credit what goes out
+3. **Nominal Account:** Debit all expenses/losses, Credit all incomes/gains
+
+**Fundamental Concepts:**
+• **Assets = Liabilities + Capital** (Accounting Equation)
+• **Double Entry System** - Every transaction affects two accounts
+• **Accrual Basis** - Record when earned/incurred, not when cash received/paid
+
+**Key Terms:**
+• **Debit (Dr.)** - Left side of account, increases assets/expenses
+• **Credit (Cr.)** - Right side of account, increases liabilities/income
+• **Trial Balance** - List of all account balances
+• **P&L Account** - Shows profit or loss for a period
+• **Balance Sheet** - Shows financial position at a point in time
+
+**Practice Tip:** Start with simple transactions like cash sales, purchases, and gradually move to complex entries!`;
+        }
+        
+        if (message.includes('cma') || message.includes('cost accounting')) {
+            return `**CMA (Cost & Management Accountant) Overview**
+
+**What is CMA?**
+Cost & Management Accountant focuses on cost control, budgeting, and management decision-making.
+
+**Course Structure:**
+• **Foundation** (after 12th)
+• **Intermediate** (8 subjects)
+• **Final** (8 subjects)
+• **Practical Training** (15 months)
+
+**Key Subjects:**
+• Cost Accounting & Control
+• Financial Management & International Finance
+• Strategic Management & Business Ethics
+• Corporate Laws & Compliance
+
+**Career Opportunities:**
+• Cost Accountant in manufacturing companies
+• Management Accountant
+• Financial Controller
+• Budget Analyst
+• Internal Auditor
+
+**Salary Range:** ₹5-25 LPA depending on experience
+
+**Why Choose CMA?**
+✓ High demand in manufacturing sector
+✓ Excellent for those interested in cost control
+✓ Good work-life balance
+✓ Opportunities in both industry and practice`;
+        }
+        
+        if (message.includes('b.com') || message.includes('bcom') || message.includes('bachelor')) {
+            return `**B.Com Course Guide**
+
+**Core Subjects (Usually):**
+• Financial Accounting
+• Business Mathematics & Statistics
+• Microeconomics & Macroeconomics
+• Business Law
+• Corporate Accounting
+• Cost Accounting
+• Auditing
+• Taxation (Income Tax, GST)
+• Financial Management
+• Computer Applications in Business
+
+**Specializations Available:**
+• B.Com (Hons) - General
+• B.Com (Accounting & Finance)
+• B.Com (Banking & Insurance)
+• B.Com (Computer Applications)
+
+**Career After B.Com:**
+• Pursue CA/CS/CMA
+• MBA in Finance/Marketing
+• Banking sector jobs
+• Government jobs (SSC, Banking exams)
+• Start your own business
+
+**Skills to Develop:**
+✓ Excel proficiency
+✓ Tally software
+✓ Communication skills
+✓ Analytical thinking
+
+**Pro Tip:** B.Com is a great foundation - use it as a stepping stone to professional courses!`;
+        }
+        
+        if (message.includes('economics') || message.includes('micro') || message.includes('macro')) {
+            return `**Economics Fundamentals**
+
+**Microeconomics:**
+• Studies individual economic units (consumers, firms)
+• **Key Topics:** Demand & Supply, Elasticity, Consumer Behavior, Production Theory, Market Structures
+• **Applications:** Pricing decisions, resource allocation
+
+**Macroeconomics:**
+• Studies economy as a whole
+• **Key Topics:** GDP, Inflation, Unemployment, Monetary Policy, Fiscal Policy
+• **Applications:** Government policy, economic forecasting
+
+**Important Concepts:**
+• **Opportunity Cost** - Cost of next best alternative
+• **Marginal Utility** - Additional satisfaction from one more unit
+• **Elasticity** - Responsiveness of demand/supply to price changes
+• **GDP** - Total value of goods & services produced
+• **Inflation** - General rise in price level
+
+**Study Tips:**
+✓ Use graphs and diagrams extensively
+✓ Relate concepts to real-world examples
+✓ Practice numerical problems
+✓ Read economic newspapers/magazines
+
+**Career Applications:** Essential for CA, CS, MBA, Civil Services, Banking careers!`;
+        }
+        
+        // General AI responses
+        if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+            return `Hello! 👋 I'm Commerce GPT, your AI assistant specializing in Commerce, Finance, and Professional courses. 
+
+I can help you with:
+• **Commerce subjects** (Accounting, Economics, Business Studies)
+• **Professional courses** (CA, CS, CMA, CFA, CFP)
+• **Academic guidance** (B.Com, M.Com subjects)
+• **Career advice** in finance and commerce
+• **General questions** on any topic
+
+What would you like to learn about today?`;
+        }
+        
+        if (message.includes('help') || message.includes('what can you do')) {
+            return `**I can help you with:**
+
+📊 **Commerce & Finance:**
+• Accounting principles and practices
+• Financial management concepts
+• Business mathematics and statistics
+• Economics (micro and macro)
+• Business law and corporate governance
+
+🎓 **Professional Courses:**
+• CA (Chartered Accountant) guidance
+• CS (Company Secretary) information
+• CMA (Cost & Management Accountant)
+• CFA, CFP, and other finance certifications
+
+🏫 **Academic Support:**
+• B.Com and M.Com subject explanations
+• Assignment help and concept clarification
+• Exam preparation strategies
+• Career guidance in commerce field
+
+🤖 **General AI Assistance:**
+• Answer questions on any topic
+• Explain complex concepts simply
+• Provide study tips and strategies
+• Help with research and analysis
+
+Just ask me anything - I'm here to help! 😊`;
+        }
+        
+        // Default responses for unmatched queries
+        const defaultResponses = [
+            `That's an interesting question! While I specialize in Commerce and Finance topics, I'd be happy to help. Could you provide more specific details about what you'd like to know?
+
+For the best assistance, try asking about:
+• Accounting concepts or problems
+• Professional course guidance (CA/CS/CMA)
+• Business studies or economics topics
+• Career advice in commerce field
+
+What specific area would you like to explore?`,
+            
+            `I understand you're looking for information on this topic. As Commerce GPT, I'm most knowledgeable about:
+
+📚 **Academic subjects:** Accounting, Economics, Business Studies
+🎯 **Professional courses:** CA, CS, CMA, CFA
+💼 **Career guidance:** Finance and commerce careers
+🧠 **General knowledge:** Happy to help with other topics too!
+
+Could you rephrase your question or let me know which area you'd like to focus on?`,
+            
+            `Thank you for your question! I'm here to provide detailed, helpful responses on commerce, finance, and general topics.
+
+To give you the most accurate and useful information, could you:
+• Be more specific about what you need
+• Let me know your current level (student, professional, etc.)
+• Mention if this is for exam prep, career guidance, or general knowledge
+
+I'm ready to provide comprehensive explanations once I understand your needs better! 😊`
+        ];
+        
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+}
