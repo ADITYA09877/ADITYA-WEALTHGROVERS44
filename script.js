@@ -100,7 +100,7 @@ const bookData = {
             "Overcoming money-related stress and anxiety"
         ],
         keyTakeaways: "Understand the psychological factors that drive financial decisions and learn to make more rational money choices.",
-        price: "₹299",
+        price: "₹500",
         image: "https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     2: {
@@ -114,7 +114,7 @@ const bookData = {
             "Digital marketing and online business models"
         ],
         keyTakeaways: "Learn proven methods to diversify your income and build multiple revenue streams for financial security.",
-        price: "₹399",
+        price: "₹500",
         image: "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     3: {
@@ -142,7 +142,7 @@ const bookData = {
             "Creating emergency funds and financial safety nets"
         ],
         keyTakeaways: "Build a comprehensive saving plan that ensures financial security and wealth accumulation over time.",
-        price: "₹349",
+        price: "₹500",
         image: "https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     4: {
@@ -156,7 +156,7 @@ const bookData = {
             "Building wealth-conscious family traditions"
         ],
         keyTakeaways: "Learn how to break negative financial patterns and create a positive money legacy for future generations.",
-        price: "₹279",
+        price: "₹500",
         image: "https://images.pexels.com/photos/1153213/pexels-photo-1153213.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
 };
