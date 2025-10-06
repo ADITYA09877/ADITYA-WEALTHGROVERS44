@@ -435,7 +435,11 @@ body {
 .form-container iframe {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    max-width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 1400px !important;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Footer */

@@ -131,7 +131,7 @@ const bookData = {
         price: "₹249",
         image: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg"
     },
-    4: {
+    3: {
         title: "Saving Money for the Future",
         description: "Learn advanced saving strategies and long-term wealth building techniques for a secure financial future.",
         content: [
@@ -145,7 +145,7 @@ const bookData = {
         price: "₹349",
         image: "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg"
     },
-    5: {
+    4: {
         title: "Poor Father vs Good Father",
         description: "Understand the mindset differences between financially struggling and financially successful parents and their impact on children.",
         content: [
