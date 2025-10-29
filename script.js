@@ -547,9 +547,40 @@ window.addEventListener('click', function(event) {
 window.addEventListener('load', function() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
-    
+
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
+});
+
+// Contact Form Handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    const submitBtn = e.target.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+        submitBtn.textContent = 'Message Sent!';
+        submitBtn.style.background = '#059669';
+
+        setTimeout(() => {
+            this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '#2563eb';
+            submitBtn.disabled = false;
+
+            alert('Thank you for contacting Wealth Growers! We will get back to you soon.');
+        }, 2000);
+    }, 1500);
 });
 

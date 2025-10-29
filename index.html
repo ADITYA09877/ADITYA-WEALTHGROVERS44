@@ -28,7 +28,13 @@
                     <a href="#products" class="nav-link">Our Products</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#feedback" class="nav-link">Feedback Form</a>
+                    <a href="#games" class="nav-link">Games & Quizzes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#feedback" class="nav-link">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact Us</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -232,11 +238,11 @@
         </div>
     </section>
 
-    <!-- Tic Tac Toe Game Section -->
-    <section class="game-section">
+    <!-- Games & Quizzes Section -->
+    <section id="games" class="game-section">
         <div class="container">
-            <h2 class="section-title">Financial Literacy Challenge Game</h2>
-            <p class="section-subtitle">Play Tic Tac Toe and learn about finance! Win for discounts, lose and pay extra!</p>
+            <h2 class="section-title">Games & Quizzes</h2>
+            <p class="section-subtitle">Engaging learning tools - Play Tic Tac Toe and learn about finance! Win for discounts, lose and pay extra!</p>
             
             <div class="game-container">
                 <div class="game-info">
@@ -288,19 +294,73 @@
     <!-- Feedback Form Section -->
     <section id="feedback" class="feedback-section">
         <div class="container">
-            <h2 class="section-title">Share Your Feedback</h2>
+            <h2 class="section-title">Feedback</h2>
             <p class="section-subtitle">Help us improve our financial literacy resources</p>
             <div class="form-container">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true" 
-                    width="640" 
-                    height="1400" 
-                    frameborder="0" 
-                    marginheight="0" 
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true"
+                    width="640"
+                    height="1400"
+                    frameborder="0"
+                    marginheight="0"
                     marginwidth="0"
                     style="border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 100%; display: block; margin: 0 auto;">
                     Loading…
                 </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Interested in collaborations or school presentations? Get in touch with us!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>wealthgrowers2025@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-school"></i>
+                        <h3>School Presentations</h3>
+                        <p>We offer interactive financial literacy sessions for students</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Collaborations</h3>
+                        <p>Partner with us to spread financial literacy</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="collaboration">Collaboration Inquiry</option>
+                                <option value="presentation">School Presentation Request</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -319,7 +379,9 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#products">Products</a></li>
+                        <li><a href="#games">Games & Quizzes</a></li>
                         <li><a href="#feedback">Feedback</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
