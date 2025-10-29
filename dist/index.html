@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" crossorigin href="/assets/index-C4yoXwG9.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-CZIMYIJZ.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -28,7 +28,13 @@
                     <a href="#products" class="nav-link">Our Products</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#feedback" class="nav-link">Feedback Form</a>
+                    <a href="#games" class="nav-link">Games & Quizzes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#feedback" class="nav-link">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact Us</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -44,7 +50,7 @@
         <div class="hero-content">
             <div>
                 <h1 class="hero-title">Master Your Financial Future</h1>
-                <p class="hero-subtitle">Learn essential financial skills with Wealth Growers - Your gateway to financial literacy and success</p>
+                <p class="hero-subtitle">Wealth Growers is a financial literacy learning hub built by students, for students — a Class 9 initiative that turns complex financial topics into simple, interactive learning experiences. Our mission? To empower young minds with money skills that last a lifetime. From saving to investing, budgeting to smart spending — Wealth Growers teaches you to grow your wealth, not just earn it.</p>
                 <button class="cta-button">Start Learning Today</button>
             </div>
             <div class="hero-image">
@@ -174,8 +180,11 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="product-card" data-book="1">
-                            <div class="product-image">
-                                <i class="fas fa-book"></i>
+                            <div class="product-image-wrapper">
+                                <img src="https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Money and Psychology" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="product-image" style="display:none;">
+                                    <i class="fas fa-book"></i>
+                                </div>
                             </div>
                             <h3>Money and Psychology</h3>
                             <p class="product-price">₹500</p>
@@ -184,8 +193,11 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="product-card" data-book="2">
-                            <div class="product-image">
-                                <i class="fas fa-book-open"></i>
+                            <div class="product-image-wrapper">
+                                <img src="https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=400" alt="7 Best Ways to Earn Money" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="product-image" style="display:none;">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
                             </div>
                             <h3>7 Best Ways to Earn Money</h3>
                             <p class="product-price">₹500</p>
@@ -194,8 +206,11 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="product-card" data-book="4">
-                            <div class="product-image">
-                                <i class="fas fa-graduation-cap"></i>
+                            <div class="product-image-wrapper">
+                                <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Saving Money for the Future" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="product-image" style="display:none;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
                             </div>
                             <h3>Saving Money for the Future</h3>
                             <p class="product-price">₹500</p>
@@ -204,8 +219,11 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="product-card" data-book="5">
-                            <div class="product-image">
-                                <i class="fas fa-lightbulb"></i>
+                            <div class="product-image-wrapper">
+                                <img src="https://images.pexels.com/photos/1153213/pexels-photo-1153213.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Poor Father vs Good Father" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="product-image" style="display:none;">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
                             </div>
                             <h3>Poor Father vs Good Father</h3>
                             <p class="product-price">₹500</p>
@@ -220,11 +238,11 @@
         </div>
     </section>
 
-    <!-- Tic Tac Toe Game Section -->
-    <section class="game-section">
+    <!-- Games & Quizzes Section -->
+    <section id="games" class="game-section">
         <div class="container">
-            <h2 class="section-title">Financial Literacy Challenge Game</h2>
-            <p class="section-subtitle">Play Tic Tac Toe and learn about finance! Win for discounts, lose and pay extra!</p>
+            <h2 class="section-title">Games & Quizzes</h2>
+            <p class="section-subtitle">Engaging learning tools - Play Tic Tac Toe and learn about finance! Win for discounts, lose and pay extra!</p>
             
             <div class="game-container">
                 <div class="game-info">
@@ -276,19 +294,73 @@
     <!-- Feedback Form Section -->
     <section id="feedback" class="feedback-section">
         <div class="container">
-            <h2 class="section-title">Share Your Feedback</h2>
+            <h2 class="section-title">Feedback</h2>
             <p class="section-subtitle">Help us improve our financial literacy resources</p>
             <div class="form-container">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true" 
-                    width="640" 
-                    height="1400" 
-                    frameborder="0" 
-                    marginheight="0" 
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScoZ-TZiDIeMKfdMpHG2cmh7d-Hy7RlgYt5bV5QLHxaOFLyvA/viewform?embedded=true"
+                    width="640"
+                    height="1400"
+                    frameborder="0"
+                    marginheight="0"
                     marginwidth="0"
                     style="border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 100%; display: block; margin: 0 auto;">
                     Loading…
                 </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Interested in collaborations or school presentations? Get in touch with us!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>wealthgrowers2025@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-school"></i>
+                        <h3>School Presentations</h3>
+                        <p>We offer interactive financial literacy sessions for students</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Collaborations</h3>
+                        <p>Partner with us to spread financial literacy</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="collaboration">Collaboration Inquiry</option>
+                                <option value="presentation">School Presentation Request</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -307,7 +379,9 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#products">Products</a></li>
+                        <li><a href="#games">Games & Quizzes</a></li>
                         <li><a href="#feedback">Feedback</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
