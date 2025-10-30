@@ -207,11 +207,49 @@ body {
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .about-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.topic-box {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.topic-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.topic-box:hover::before {
+    opacity: 1;
+}
+
+.learn-more {
+    margin-top: 1rem;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.topic-box:hover .learn-more {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .about-card i {

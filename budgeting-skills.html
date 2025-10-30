@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting Skills - Wealth Growers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .topic-page {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .topic-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topic-header {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .topic-header h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .topic-header .intro {
+            font-size: 1.2rem;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .explanation-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .explanation-section h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #f5576c;
+            padding-left: 1rem;
+        }
+
+        .explanation-point {
+            background: #fef2f2;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #f5576c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .explanation-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.2);
+        }
+
+        .explanation-point h3 {
+            color: #f5576c;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .explanation-point p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .visual-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .visual-section h2 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .budget-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .chart-item {
+            text-align: center;
+        }
+
+        .chart-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .needs {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .wants {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .savings {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .chart-circle .percentage {
+            font-size: 2.5rem;
+        }
+
+        .chart-circle .label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #f5576c;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: #f5576c;
+            color: white;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .topic-header h1 {
+                font-size: 2rem;
+            }
+
+            .topic-header, .explanation-section, .visual-section {
+                padding: 1.5rem;
+            }
+
+            .budget-chart {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topic-page">
+        <div class="topic-container">
+            <div class="topic-header">
+                <h1>📊 Budgeting Skills</h1>
+                <p class="intro">Budgeting helps you control where your money goes instead of wondering where it went.</p>
+            </div>
+
+            <div class="explanation-section">
+                <h2>Master Your Money Management</h2>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-wallet"></i> Understand Income and Expenses</h3>
+                    <p>The first step to budgeting is knowing how much money comes in (income) and how much goes out (expenses). Income could be pocket money, earnings from part-time work, or gifts. Expenses are everything you spend on—snacks, transportation, entertainment, and necessities. Write them all down to see the full picture.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-calculator"></i> Use the 50-30-20 Rule for Planning</h3>
+                    <p>This simple rule helps you divide your money wisely: 50% for needs (things you must have), 30% for wants (things you'd like to have), and 20% for savings (money for your future). This balance ensures you enjoy life today while preparing for tomorrow.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-mobile-alt"></i> Track Spending Using Apps or Notebooks</h3>
+                    <p>To stay on budget, you need to know where every rupee goes. Use a budgeting app on your phone or simply maintain a small notebook. Write down each expense daily. You'll be surprised how small purchases add up and how tracking them helps you cut unnecessary spending.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-sync-alt"></i> Adjust Your Budget as Goals Change</h3>
+                    <p>Your budget isn't set in stone. As your life changes—new goals, different needs, or changes in income—your budget should change too. Review it monthly and make adjustments. Flexibility is key to a budget that actually works for you.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-ban"></i> Avoid Unnecessary Expenses</h3>
+                    <p>Impulse buying and unnecessary expenses are budget killers. Before making a purchase, give yourself 24 hours to think it over. Ask: "Do I really need this?" Most times, you'll find the urge passes. This simple habit can save you a lot of money over time.</p>
+                </div>
+            </div>
+
+            <div class="visual-section">
+                <h2>The 50-30-20 Budgeting Rule</h2>
+                <div class="budget-chart">
+                    <div class="chart-item">
+                        <div class="chart-circle needs">
+                            <div class="percentage">50%</div>
+                            <div class="label">NEEDS</div>
+                        </div>
+                        <p>Essential expenses like food, rent, and education</p>
+                    </div>
+                    <div class="chart-item">
+                        <div class="chart-circle wants">
+                            <div class="percentage">30%</div>
+                            <div class="label">WANTS</div>
+                        </div>
+                        <p>Entertainment, hobbies, and lifestyle choices</p>
+                    </div>
+                    <div class="chart-item">
+                        <div class="chart-circle savings">
+                            <div class="percentage">20%</div>
+                            <div class="label">SAVINGS</div>
+                        </div>
+                        <p>Emergency fund and future goals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <a href="index.html#about" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to About Page
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

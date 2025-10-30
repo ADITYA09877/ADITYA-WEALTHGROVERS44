@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Saving - Wealth Growers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .topic-page {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .topic-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topic-header {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .topic-header h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .topic-header .intro {
+            font-size: 1.2rem;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .explanation-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .explanation-section h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+        }
+
+        .explanation-point {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .explanation-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .explanation-point h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .explanation-point p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .visual-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .visual-section h2 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .infographic {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: #667eea;
+            color: white;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .topic-header h1 {
+                font-size: 2rem;
+            }
+
+            .topic-header, .explanation-section, .visual-section {
+                padding: 1.5rem;
+            }
+
+            .infographic {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topic-page">
+        <div class="topic-container">
+            <div class="topic-header">
+                <h1>💡 Smart Saving</h1>
+                <p class="intro">Saving money is the first step toward financial independence. It helps us prepare for future needs and emergencies.</p>
+            </div>
+
+            <div class="explanation-section">
+                <h2>Why Smart Saving Matters</h2>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-balance-scale"></i> Separate Wants from Needs</h3>
+                    <p>Understanding the difference between what you want and what you actually need is crucial. Needs are essentials like food, shelter, and education. Wants are things that make life enjoyable but aren't necessary. Before spending, always ask yourself: "Do I need this, or do I just want it?"</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-ambulance"></i> Build an Emergency Fund</h3>
+                    <p>Life is full of surprises, and not all of them are pleasant. An emergency fund is money you set aside for unexpected events like medical emergencies, urgent repairs, or sudden expenses. Try to save at least 3-6 months of your basic expenses.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-bullseye"></i> Set Monthly Saving Goals</h3>
+                    <p>Having clear goals makes saving easier and more meaningful. Decide how much you want to save each month and stick to it. Start small if needed—even saving 10% of your pocket money or earnings is a great habit to build.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-university"></i> Use Savings Accounts to Earn Interest</h3>
+                    <p>Don't just keep your money at home. Put it in a savings account where it can earn interest. Interest is money the bank pays you for keeping your money with them. Over time, this helps your savings grow without any extra effort!</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-calendar-check"></i> Start Small but Stay Consistent</h3>
+                    <p>You don't need to save large amounts to make a difference. The key is consistency. Even small amounts saved regularly add up over time. Think of it like building a wall—one brick at a time, you'll eventually have something strong and lasting.</p>
+                </div>
+            </div>
+
+            <div class="visual-section">
+                <h2>Key Saving Principles</h2>
+                <div class="infographic">
+                    <div class="info-card">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Save First</h3>
+                        <p>Pay yourself first before spending</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Track Progress</h3>
+                        <p>Monitor your savings growth</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Celebrate Wins</h3>
+                        <p>Reward yourself for reaching goals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <a href="index.html#about" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to About Page
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

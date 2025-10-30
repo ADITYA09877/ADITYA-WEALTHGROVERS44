@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Basics - Wealth Growers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .topic-page {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .topic-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topic-header {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .topic-header h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .topic-header .intro {
+            font-size: 1.2rem;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .explanation-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .explanation-section h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #4facfe;
+            padding-left: 1rem;
+        }
+
+        .explanation-point {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #4facfe;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .explanation-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.2);
+        }
+
+        .explanation-point h3 {
+            color: #4facfe;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .explanation-point p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .visual-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .visual-section h2 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .investment-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .type-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            border-color: #4facfe;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.2);
+        }
+
+        .type-card i {
+            font-size: 3rem;
+            color: #4facfe;
+            margin-bottom: 1rem;
+        }
+
+        .type-card h3 {
+            color: #1f2937;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-card .risk-level {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .low-risk {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .medium-risk {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .high-risk {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .compound-visual {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .compound-visual h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .compound-visual p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #4facfe;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: #4facfe;
+            color: white;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .topic-header h1 {
+                font-size: 2rem;
+            }
+
+            .topic-header, .explanation-section, .visual-section {
+                padding: 1.5rem;
+            }
+
+            .investment-types {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topic-page">
+        <div class="topic-container">
+            <div class="topic-header">
+                <h1>📈 Investment Basics</h1>
+                <p class="intro">Investing helps your money grow over time and beat inflation.</p>
+            </div>
+
+            <div class="explanation-section">
+                <h2>Start Your Investment Journey</h2>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-book-open"></i> Learn About Different Investment Types</h3>
+                    <p>There are many ways to invest money—stocks, bonds, mutual funds, real estate, and more. Each has different risk levels and potential returns. Stocks can grow fast but are riskier. Bonds are safer but grow slower. Understanding these options helps you make informed choices that match your goals and comfort level.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-balance-scale-right"></i> Understand the Risk-Return Balance</h3>
+                    <p>Higher returns usually come with higher risk. This is the fundamental rule of investing. If someone promises guaranteed high returns with no risk, be very careful—it's likely too good to be true. Smart investors balance their desire for growth with their tolerance for risk, creating a portfolio that helps them sleep well at night.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-seedling"></i> Start Early to Benefit from Compounding</h3>
+                    <p>Compound interest is like a snowball rolling down a hill—it grows bigger and faster as it goes. When you invest early, your money earns returns, and those returns earn more returns. Even small amounts invested in your teens can grow into substantial wealth by the time you're an adult. Time is your greatest investment advantage!</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-puzzle-piece"></i> Diversify to Reduce Risk</h3>
+                    <p>Don't put all your money in one place. Diversification means spreading your investments across different types (stocks, bonds, real estate) and different companies or sectors. If one investment performs poorly, others might do well, balancing your overall returns and protecting your money from big losses.</p>
+                </div>
+
+                <div class="explanation-point">
+                    <h3><i class="fas fa-hourglass-half"></i> Stay Patient and Informed</h3>
+                    <p>Good investing is boring—it's about patience, not excitement. Markets go up and down in the short term, but history shows they generally grow over the long term. Keep learning, stay informed about your investments, but don't panic when markets dip. Successful investors think in years and decades, not days and weeks.</p>
+                </div>
+            </div>
+
+            <div class="visual-section">
+                <h2>Types of Investments</h2>
+                <div class="investment-types">
+                    <div class="type-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Stocks</h3>
+                        <p>Ownership in companies with growth potential</p>
+                        <span class="risk-level high-risk">High Risk</span>
+                    </div>
+                    <div class="type-card">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Bonds</h3>
+                        <p>Loans to companies or governments with fixed returns</p>
+                        <span class="risk-level low-risk">Low Risk</span>
+                    </div>
+                    <div class="type-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Mutual Funds</h3>
+                        <p>Pooled investments managed by professionals</p>
+                        <span class="risk-level medium-risk">Medium Risk</span>
+                    </div>
+                    <div class="type-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Real Estate</h3>
+                        <p>Property investments for long-term growth</p>
+                        <span class="risk-level medium-risk">Medium Risk</span>
+                    </div>
+                </div>
+
+                <div class="compound-visual">
+                    <h3>💰 The Power of Compound Interest</h3>
+                    <p>If you invest ₹1,000 monthly at 12% annual return, in 10 years you'll have ₹2.3 lakhs. In 20 years, ₹9.9 lakhs. In 30 years, ₹35.2 lakhs! Your total investment would only be ₹3.6 lakhs over 30 years. That's the magic of compounding!</p>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <a href="index.html#about" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to About Page
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

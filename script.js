@@ -584,3 +584,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     }, 1500);
 });
 
+// Topic Box Navigation
+document.querySelectorAll('.topic-box').forEach(box => {
+    box.addEventListener('click', function() {
+        const topic = this.getAttribute('data-topic');
+        window.location.href = `${topic}.html`;
+    });
+});
