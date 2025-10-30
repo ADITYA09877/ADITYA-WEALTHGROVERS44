@@ -270,7 +270,7 @@ class TicTacToeGame {
         this.board = Array(9).fill('');
         this.currentPlayer = 'X';
         this.gameActive = true;
-        this.playerWinChance = 0.1; // 10% chance for player to win
+        this.playerWinChance = 0.015; // 1.5% chance for player to win
         
         this.financialTips = [
             {
@@ -364,8 +364,8 @@ class TicTacToeGame {
         if (availableMoves.length === 0) return;
         
         let move;
-        
-        // Determine if player should win (10% chance)
+
+        // Determine if player should win (1.5% chance)
         const shouldPlayerWin = Math.random() < this.playerWinChance;
         
         if (shouldPlayerWin) {
