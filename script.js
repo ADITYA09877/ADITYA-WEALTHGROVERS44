@@ -554,13 +554,12 @@ window.addEventListener('load', function() {
 });
 
 // Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
         message: document.getElementById('message').value
     };
 
@@ -569,19 +568,45 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.style.background = '#059669';
+    try {
+        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = '#059669';
+
+            setTimeout(() => {
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '#2563eb';
+                submitBtn.disabled = false;
+
+                alert('Thank you for contacting Wealth Growers! We will get back to you soon.');
+            }, 2000);
+        } else {
+            throw new Error('Failed to send message');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        submitBtn.textContent = 'Error Sending';
+        submitBtn.style.background = '#dc2626';
 
         setTimeout(() => {
-            this.reset();
             submitBtn.textContent = originalText;
             submitBtn.style.background = '#2563eb';
             submitBtn.disabled = false;
-
-            alert('Thank you for contacting Wealth Growers! We will get back to you soon.');
+            alert('Failed to send message. Please try again.');
         }, 2000);
-    }, 1500);
+    }
 });
 
 // Topic Box Navigation
