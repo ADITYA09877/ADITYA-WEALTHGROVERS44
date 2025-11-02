@@ -212,7 +212,11 @@ function showBookModal(book) {
 }
 
 // Close modal functionality
-closeBtn.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeModal();
+});
+
 window.addEventListener('click', function(event) {
     if (event.target === modal) {
         closeModal();
@@ -220,8 +224,14 @@ window.addEventListener('click', function(event) {
 });
 
 function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    modal.style.transition = 'opacity 0.3s ease';
+    modal.style.opacity = '0';
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.style.opacity = '1';
+        document.body.style.overflow = 'auto';
+    }, 300);
 }
 
 // Navbar scroll effect
@@ -551,62 +561,6 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
-});
-
-// Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-
-    const submitBtn = e.target.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-
-    try {
-        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
-
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-            submitBtn.textContent = 'Message Sent!';
-            submitBtn.style.background = '#059669';
-
-            setTimeout(() => {
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = '#2563eb';
-                submitBtn.disabled = false;
-
-                alert('Thank you for contacting Wealth Growers! We will get back to you soon.');
-            }, 2000);
-        } else {
-            throw new Error('Failed to send message');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        submitBtn.textContent = 'Error Sending';
-        submitBtn.style.background = '#dc2626';
-
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '#2563eb';
-            submitBtn.disabled = false;
-            alert('Failed to send message. Please try again.');
-        }, 2000);
-    }
 });
 
 // Topic Box Navigation
