@@ -118,32 +118,18 @@ const bookData = {
         image: "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     3: {
-        title: "75 Hard Challenge",
-        description: "A transformative 75-day mental toughness program that builds discipline, confidence, and financial self-control.",
+        title: "75 Days Hard Challenge",
+        description: "This book is a powerful personal finance and self-discipline guide that helps you transform your mindset, habits, and money management in just 75 days. Each day includes a practical financial task, reflection goal, and motivation tip — designed to strengthen consistency and smart money habits.",
         content: [
-            "The complete 75 Hard Challenge rules and guidelines",
-            "Building mental toughness and discipline",
-            "Developing consistent daily habits",
-            "Applying discipline to financial goals",
-            "Tracking progress and maintaining accountability"
+            "Daily financial tasks and challenges",
+            "Building consistent money management habits",
+            "Strengthening financial discipline and mindset",
+            "Tracking progress and reflection goals",
+            "Practical motivation tips for each day"
         ],
-        keyTakeaways: "Develop unbreakable mental discipline that translates into better financial habits and life success.",
-        price: "₹249",
-        image: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg"
-    },
-    3: {
-        title: "Saving Money for the Future",
-        description: "Learn advanced saving strategies and long-term wealth building techniques for a secure financial future.",
-        content: [
-            "Long-term saving strategies and goal setting",
-            "Understanding compound interest and time value of money",
-            "Retirement planning and pension schemes",
-            "Tax-saving investment options",
-            "Creating emergency funds and financial safety nets"
-        ],
-        keyTakeaways: "Build a comprehensive saving plan that ensures financial security and wealth accumulation over time.",
-        price: "₹500",
-        image: "https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=400"
+        keyTakeaways: "Transform your financial mindset and build unbreakable money management habits in 75 days through daily challenges and consistent practice.",
+        price: "₹299",
+        image: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     4: {
         title: "Poor Father vs Good Father",
